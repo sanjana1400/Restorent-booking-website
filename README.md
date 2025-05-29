@@ -29,23 +29,20 @@ A **modern restaurant website** built using **MERN Stack (MongoDB, Express.js, R
 
 ## 🚀 Installation Guide
 ### **1️⃣ Clone the Repository**
-<<<<<<< HEAD
+
 git clone https://github.com/sanjana1400/Restorent-booking-website.git
-=======
-git clone https://github.com/sanjana1400/Restorent-website.git
->>>>>>> 0a5d72a24dfb6e7ec30e26386fd74499e63e2b14
-cd Restorent-website
+cd Restorent-booking-website
 
 2️⃣ Install Dependencies
-Frontend -
-cd frontend,
-npm install,
-npm run dev
+**Frontend** -
+**cd frontend**
+**npm install**
+**npm run dev**
 
-Backend -
-cd backend,
-npm install,
-npm start
+**Backend** -
+**cd backend**
+**npm install**
+**npm start**
 
 3️⃣ Run the App
 Open http://localhost:5173/ for the frontend.
@@ -53,8 +50,4 @@ Open http://localhost:5173/ for the frontend.
 The backend runs on http://localhost:5000/.
 
 📜 License
-<<<<<<< HEAD
 This project is open-source. Feel free to use and modify it.
-=======
-This project is open-source. Feel free to use and modify it.
->>>>>>> 0a5d72a24dfb6e7ec30e26386fd74499e63e2b14
