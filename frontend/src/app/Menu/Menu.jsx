@@ -465,7 +465,7 @@ const menuItems = {
 }
 
 function Menu({ addToCart }) {
-  const [activeCategory, setActiveCategory] = useState("starters")
+  const [activeCategory, setActiveCategory] = useState("Starters")
 
   const AddToCart = (item) => {
     const token = localStorage.getItem("token");

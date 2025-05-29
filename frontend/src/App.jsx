@@ -15,6 +15,7 @@ import Signup from "./pages/Signup"
 import Reserve from "./app/Reserve/Reservetable"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
+import { AuthProvider } from "./Context/AuthContext";
 
 function App() {
   const [cartItems, setCartItems] = useState([])
@@ -40,9 +41,10 @@ function App() {
   const removeAllItems = () => {
     setCartItems([])
   }
-
+  
   return (
     <Router>
+       <AuthProvider>
       <div className="flex flex-col min-h-screen">
         <Navbar cartItems={cartItems} />
         <main className="flex-grow">
@@ -65,6 +67,7 @@ function App() {
         <Footer />
       </div>
       <Toaster position="top-center" />
+      </AuthProvider>
     </Router>
   )
 }

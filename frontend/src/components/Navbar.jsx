@@ -1,29 +1,22 @@
 "use client"
 
-import { useState , useEffect} from "react"
+import { useState } from "react"
 import { Link , useNavigate} from "react-router-dom"
 import { PhoneCall, User, ShoppingCart, MenuIcon } from "lucide-react"
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+
 
 function Navbar({ cartItems }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-          const [isAuthenticated, setIsAuthenticated] = useState(false);
+          const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
           const navigate = useNavigate();
-        
-          useEffect(() => {
-            // Check if user is logged in (by checking token in localStorage)
-            const token = localStorage.getItem("token");
-            if (token) {
-              setIsAuthenticated(true);
-            }
-          }, []);
 
-          
-      const handleLogout = () => {
-        localStorage.removeItem("token"); // Remove token on logout
-        setIsAuthenticated(false);
-        navigate("/login");
-      };
-
+          const handleLogout = () => {
+             localStorage.removeItem("token");
+             setIsAuthenticated(false);
+             navigate("/login");
+          };
 
   return (
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">

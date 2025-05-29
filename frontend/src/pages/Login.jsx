@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import axios from "axios";
 import { toast } from "sonner";
+import { useAuth } from "../Context/AuthContext"; // ✅ Add this import
+
 
 const schema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -23,17 +25,20 @@ function Login() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate(); // Use useNavigate for programmatic navigation
+  
+const { setIsAuthenticated } = useAuth();
 
-const onSubmit = async (data) => {
+ const onSubmit = async (data) => {
     setIsLoading(true);
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", {
         email: data.email,
         password: data.password,
       });
-  
+
       localStorage.setItem("token", response.data.token); // Save token
+      setIsAuthenticated(true); // Set auth only on success
       toast.success("Logged in successfully!");
       navigate("/"); // Redirect to home
     } catch (error) {
@@ -43,8 +48,6 @@ const onSubmit = async (data) => {
       setIsLoading(false);
     }
   };
-  
-  
 
   return (
     <div className="container mx-auto px-4 py-24">
